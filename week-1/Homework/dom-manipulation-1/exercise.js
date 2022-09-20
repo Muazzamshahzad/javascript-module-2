@@ -64,7 +64,10 @@ When the 'Larger links!' button is clicked, the text of all links on the page sh
 let largerBtn = document.querySelector("#largerLinksBtn");
 let largerEvent = largerBtn.addEventListener("click", bigBig);
 function bigBig(){
-    document.querySelector(".article-title").style.fontSize = "x-large"
+    let allLinks = document.querySelectorAll("a");
+    [...allLinks].forEach(element => {
+        element.style.fontSize = "x-large"
+    });
 };
 
 /*
@@ -93,11 +96,16 @@ Using the same function in Task 3, every time the 'Change colour' button is clic
 The next color when you are in the last color of the array will be the first color again.
 */
 
-const colors = ["red", "blue", "yellow"];
-
+const colors = ["red", "blue", "yellow", "gray"];
+let changeClr2 = document.querySelector("#bgrChangeBtn");
+let clrEvent2 = changeClr.addEventListener("click", change2);
+let index = 0
 function change2(){
-    document.querySelector("body").style.backgroundColor = colorsFunction
-    function colorsFunction(colors){
-        return colors
-    }
-};
+    document.querySelector("body").style.backgroundColor = colors[index]
+    if(index == 4) {
+        index = 0;
+    } else {
+    index++;
+    };
+
+}
