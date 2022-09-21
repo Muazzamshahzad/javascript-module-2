@@ -17,3 +17,10 @@ var car = {
 
 */
 
+const eBike = {
+    brand: "Yamaha",
+    motor: "250w",
+    battery: "400a",
+    size: "xl",
+    tire: 29,
+}
