@@ -9,6 +9,9 @@ let person = {
     friends: ["John", "Nina"],
   };
   
+  person.makeFriend= function(name){
+    person.friends.push(name)
+  };
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
   */

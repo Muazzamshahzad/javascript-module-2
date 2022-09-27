@@ -15,7 +15,17 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-}
+  arrayOfPeople.forEach(person => {
+    // console.log(person.name)
+    // console.log(person.job)
+    const nameTitle = document.createElement('h1');
+    const jobTitle = document.createElement('h2');
+    nameTitle.textContent = person.name;
+    jobTitle.textContent = person.job;
+    content.appendChild(nameTitle);
+    content.appendChild(jobTitle);
+  })
+};
 
 /**
  *
@@ -24,8 +34,16 @@ function exerciseOne(arrayOfPeople) {
  * All of your HTML should go inside the Div tag with the id "content".
  *
  */
-function exerciseTwo(shopping) {
-  //Write your code in here
+function exerciseTwo(shoppingList) {
+  let content = document.querySelector("#content");
+  const list = document.createElement("ul");
+
+  content.appendChild(list);
+  shoppingList.forEach(shoppingItem => {
+    const listItem = document.createElement("li");
+    listItem.textContent = shoppingItem;
+    list.appendChild(listItem);
+  });
 }
 
 /**
@@ -59,6 +77,29 @@ function exerciseTwo(shopping) {
 **/
 function exerciseThree(books) {
   //Write your code in here
+  let content = document.querySelector("#content");
+  const list = document.createElement('ul');
+  content.appendChild(list);
+
+  books.forEach(book => {
+    const listItem = document.createElement('li');
+    const paragraph = document.createElement('p');
+    const image = document.createElement("img");
+    
+    image.src = book.url;
+    paragraph.textContent = book.title + " - " + book.author;
+
+    if (book.alreadyRead) {
+      listItem.style.color = "green";
+    } else {
+      listItem.style.color = "red";
+    }
+
+    listItem.appendChild(paragraph);
+    listItem.appendChild(image);
+    list.appendChild(listItem);
+
+  });
 }
 
 //
