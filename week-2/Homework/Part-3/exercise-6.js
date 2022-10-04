@@ -100,4 +100,58 @@ var mentors = [
 ];
 
 //YOUR CODE HERE
+// 1. & 2. & 3.
 
+mentors.forEach(function(mentor) {
+  if(mentor.job.city === "Barcelona") {
+    if(mentor.skills.includes("React")) {
+    console.log(`Hi my name is ${mentor.firstName} ${mentor.lastName}. I work in Barcelona and I know React.`)
+     }
+    mentor.class = "Jun1";
+    mentor.skills.push("SQL");
+  }
+  mentor.addSkill = function(newSkill) {
+    this.skills.push(newSkill)
+  }
+  mentor.removeSkill = function(skillToRemove) {
+    this.skills = this.skills.filter(skill => skill !== skillToRemove)
+    // const result = this.skills.filter(skill => skill !== skillToRemove)
+    // this.skills = result
+  }
+});
+
+mentors[0].addSkill('HTML');
+console.log(mentors);
+
+// 4.
+
+function addSkill(mentors, newSkill) {
+  mentors.forEach(mentor => {mentor.addSkill(newSkill)}) 
+}
+
+addSkill(mentors, 'CSS')
+console.log(mentors)
+
+// 5.
+
+function removeSkill(mentors,skillToRemove){
+  mentors.forEach(mentor => {mentor.removeSkill(skillToRemove)})
+}
+
+removeSkill(mentors, "React")
+console.log(mentors)
+
+// 6.
+
+function mentorWithMoreSkills(mentors) {
+  const numberOfSkillsPerMentor = mentors.map(mentor => mentor.skills.length);
+  const maxOfSkills = Math.max(...numberOfSkillsPerMentor);
+  const nameMentorMaxSkilled = mentors.find(mentor => mentor.skills.length === maxOfSkills).firstName;
+  return nameMentorMaxSkilled
+}
+
+mentorWithMoreSkills(mentors)
+console.log(mentorWithMoreSkills(mentors))
+
+// 7.
+// 8.
