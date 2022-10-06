@@ -59,43 +59,69 @@ var movies = [
 ];
 
 // create showMovies function
-function showMovies(movies){
- function createPElement(content){
-  let pElement = document.createElement("p");
-  pElement.innerHTML= content
-  return pElement
-};
- let textContent = movies.map((e) => createPElement(`${e.title}  - ${e.director}`)
- );
- let parentElement = document.querySelector("#all-movies");
- textContent.forEach((e)=>parentElement.appendChild(e));
- document.querySelector("#movies-number").innerText = textContent.length
-};
- //showMovies(movies);
+const moviesId = document.querySelector("#all-movies")
 
+function showMovies(MoviesList){
+  // Creating P Elements according to the given properties of the objects
+   const createP = (list) =>{
+    const p = document.createElement("p");
+    p.innerHTML = list;
+    return p
+   }
+   // Selecting Id
+  // Creating map function
+  const moviesElements = MoviesList.map((e) => createP(`${e.title} - ${e.director}`))
+  // appending each node of map function to the id 
+  moviesElements.forEach((node) => moviesId.appendChild(node));
+
+  // selecting movies number id
+
+  const moviesNumber = document.querySelector("#movies-number")
+ moviesNumber.innerHTML = MoviesList.length 
+}
+setTimeout(showMovies(movies),5000)
 
 
 // create a new movie object for your favorite movie
-const newMovie = {
-  title: "Frances Ha",
-  director: "Noah Baumbach",
-  type: "drama",
-  haveWatched: true,
-};
+
+function addMovies(movies){
+
+}
 
 // create addMovies function
-const addMovie = (movie) => {
-  console.log(movies);
-  setTimeout(() => {
-    movies.push(movie);
-    showMovies(movies);
-  }, 2000);
-};
 
-setTimeout(() => {
-  showMovies(movies);
-}, 1000);
+const form = document.querySelector("form")
 
-setTimeout(() => {
-  addMovie(newMovie);
-}, 2000);
+// creating div
+const div = document.createElement("div")
+const div2 = document.createElement("div")
+div2.classList.add("button-div")
+// creating input element
+const input = document.createElement("input")
+const input2 = document.createElement("input")
+const input3= document.createElement("input")
+const input4 = document.createElement("input")
+//appending elements
+div.appendChild(input)
+div.appendChild(input2)
+div.appendChild(input3)
+div.appendChild(input4)
+form.appendChild(div)
+
+// creating button
+const button = document.createElement("button");
+button.setAttribute("name","Save")
+button.innerText = "Save"
+button.style.display ="flex"
+button.style.height ="30px"
+button.style.width ="100%"
+button.style.justifyContent = "center"
+button.style.backgroundColor = "#6363f1"
+button.style.color = "#fff"
+
+//styling div2
+div.style.display ="flex"
+div.style.justifyContent = "space-between"
+
+form.appendChild(div2)
+div2.appendChild(button)
